@@ -10,10 +10,10 @@ import { LivroListarComponent } from './modules/livro/components/livro-listar/li
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
+import { ToastrModule } from 'ngx-toastr';
 import { LivroAdicionarComponent } from './modules/livro/components/livro-adicionar/livro-adicionar.component';
 import { LivroEditarComponent } from './modules/livro/components/livro-editar/livro-editar.component';
 import { LivroExcluirComponent } from './modules/livro/components/livro-excluir/livro-excluir.component';
-import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [

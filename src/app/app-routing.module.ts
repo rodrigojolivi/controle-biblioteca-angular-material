@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { LivroListarComponent } from './modules/livro/components/livro-listar/livro-listar.component';
 
 const routes: Routes = [
-  { path: 'livro', component: LivroListarComponent },
+  { path: '', component: LivroListarComponent },
 ];
 
 @NgModule({
