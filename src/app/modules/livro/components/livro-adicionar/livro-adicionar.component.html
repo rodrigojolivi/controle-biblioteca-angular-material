@@ -1,0 +1,38 @@
+<form [formGroup]="form">
+  <mat-form-field class="input-size-horizontal">
+    <mat-label>Título</mat-label>
+    <input matInput formControlName="titulo">
+  </mat-form-field>
+  <br>
+  
+  <mat-form-field class="input-size-horizontal">
+    <mat-label>Descrição</mat-label>
+    <input matInput formControlName="descricao">
+  </mat-form-field>
+  <br>
+  
+  <mat-form-field class="input-size-horizontal" *ngIf="autores">
+    <mat-select placeholder="-- Selecione um autor --" formControlName="idAutor">
+      <mat-option *ngFor="let autor of autores" [value]="autor.id">
+        {{autor.nome}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  
+  <mat-form-field class="input-size-horizontal" *ngIf="categorias">
+    <mat-select placeholder="-- Selecione uma categoria --" formControlName="idCategoria">
+      <mat-option *ngFor="let categoria of categorias" [value]="categoria.id">
+        {{categoria.nome}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  
+  <mat-checkbox class="example-margin" formControlName="disponivel">Tem estoque ?</mat-checkbox>
+  <br><br>
+  
+  <button mat-raised-button color="primary" class="space" (click)="salvar()">Salvar</button>
+  <button mat-raised-button (click)="cancelar()">Cancelar</button>
+</form>
+

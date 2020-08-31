@@ -1,0 +1,45 @@
+<button mat-raised-button color="primary" class="space" (click)="adicionar()">Adicionar livro</button>
+<br><br>
+
+<mat-table [dataSource]="livros" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="titulo">
+        <mat-header-cell *matHeaderCellDef> Título </mat-header-cell>
+        <mat-cell *matCellDef="let livro"> {{livro.titulo}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="descricao">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let livro"> {{livro.descricao}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="idAutor">
+        <mat-header-cell *matHeaderCellDef> Autor </mat-header-cell>
+        <mat-cell *matCellDef="let livro"> {{livro.autor.nome}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="idCategoria">
+        <mat-header-cell *matHeaderCellDef> Categoria </mat-header-cell>
+        <mat-cell *matCellDef="let livro"> {{livro.categoria.nome}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="disponivel">
+        <mat-header-cell *matHeaderCellDef> Disponível </mat-header-cell>
+        <mat-cell *matCellDef="let livro"> {{livro.disponivel == true ? 'Sim' : 'Não'}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="acoes">
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
+        <mat-cell *matCellDef="let row">
+            <button mat-icon-button matTooltip="Clique para Editar" class="iconbutton" color="primary">
+                <mat-icon aria-label="Edit" (click)="editar(row.id)">edit</mat-icon>
+            </button>
+            <button mat-icon-button matTooltip="Clique para Excluir" class="iconbutton" color="warn">
+                <mat-icon aria-label="Delete" (click)="excluir(row.id)">delete</mat-icon>
+            </button>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
